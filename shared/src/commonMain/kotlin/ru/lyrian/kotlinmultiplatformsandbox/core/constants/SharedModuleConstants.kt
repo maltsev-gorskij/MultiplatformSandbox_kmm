@@ -12,5 +12,5 @@ object KtorConstants {
 
 object TestConstants {
     const val TEST_CONSTANT = "123"
-    const val TEST_CONSTANT1 = "123"
+    const val TEST_CONSTANT2 = "123"
 }
