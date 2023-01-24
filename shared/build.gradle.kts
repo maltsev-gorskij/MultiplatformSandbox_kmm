@@ -2,6 +2,7 @@ plugins {
     id("android-config")
     id("multiplatform-config")
     id("native-cocoapods-config")
+    id("maven-publish-config")
     kotlin("multiplatform")
     id("com.android.library")
     kotlin("plugin.serialization")

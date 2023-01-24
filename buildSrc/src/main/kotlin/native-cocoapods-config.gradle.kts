@@ -8,7 +8,7 @@ plugins {
 
 kotlin {
     cocoapods {
-        version = "1.0"
+        version = AppConfig.versionName
         summary = "Some description for a Kotlin/Native module"
         homepage = "https://github.com/maltsev-gorskij/MultiplatformSandbox_kmm"
         name = "SharedPod"
