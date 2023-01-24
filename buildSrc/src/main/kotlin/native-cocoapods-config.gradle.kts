@@ -11,7 +11,7 @@ kotlin {
         version = AppConfig.versionName
         summary = "Some description for a Kotlin/Native module"
         homepage = "https://github.com/maltsev-gorskij/MultiplatformSandbox_kmm"
-        name = "SharedPod"
+        name = "shared"
 
         framework {
             baseName = "shared"

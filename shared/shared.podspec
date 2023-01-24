@@ -1,5 +1,5 @@
 Pod::Spec.new do |spec|
-    spec.name                     = 'SharedPod'
+    spec.name                     = 'shared'
     spec.version                  = '1.0'
     spec.homepage                 = 'https://github.com/maltsev-gorskij/MultiplatformSandbox_kmm'
     spec.source                   = { :http=> ''}
@@ -18,7 +18,7 @@ Pod::Spec.new do |spec|
                 
     spec.script_phases = [
         {
-            :name => 'Build SharedPod',
+            :name => 'Build shared',
             :execution_position => :before_compile,
             :shell_path => '/bin/sh',
             :script => <<-SCRIPT
