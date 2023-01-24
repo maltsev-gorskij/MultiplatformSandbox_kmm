@@ -1,0 +1,78 @@
+CREATE TABLE IF NOT EXISTS LaunchEntity (
+    flightNumber    INTEGER NOT NULL,
+    missionName     TEXT    NOT NULL,
+    launchYear      INTEGER AS Int NOT NULL DEFAULT 0,
+    details         TEXT,
+    launchSuccess   INTEGER AS Boolean DEFAULT NULL,
+    launchDateUTC   TEXT    NOT NULL,
+    articleUrl      TEXT,
+    id              TEXT NOT NULL,
+    patchImageUrl   TEXT
+);
+
+insertLaunch:
+INSERT INTO LaunchEntity(
+    flightNumber,
+    missionName,
+    launchYear,
+    details,
+    launchSuccess,
+    launchDateUTC,
+    articleUrl,
+    id,
+    patchImageUrl
+)
+VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+getLaunchById:
+SELECT *
+FROM LaunchEntity
+WHERE LaunchEntity.id == :launchId;
+
+getAllLaunches:
+SELECT *
+FROM LaunchEntity;
+
+removeAllLaunches:
+DELETE FROM LaunchEntity;
+
+
+CREATE TABLE IF NOT EXISTS FlickrImageEntity (
+    launchId      TEXT NOT NULL,
+    imageUrl      TEXT NOT NULL
+);
+
+insertFlickrImage:
+INSERT INTO FlickrImageEntity(
+    launchId,
+    imageUrl
+)
+VALUES(?, ?);
+
+getAllFlickrImagesByLaunchId:
+SELECT imageUrl
+FROM FlickrImageEntity
+WHERE FlickrImageEntity.launchId == :launchId;
+
+removeAllFlickImages:
+DELETE FROM FlickrImageEntity;
+
+CREATE TABLE IF NOT EXISTS FailureReasonEntity (
+    launchId      TEXT NOT NULL,
+    reason      TEXT NOT NULL
+);
+
+insertFailureReason:
+INSERT INTO FailureReasonEntity(
+    launchId,
+    reason
+)
+VALUES(?, ?);
+
+getAllFailureReasonsById:
+SELECT reason
+FROM FailureReasonEntity
+WHERE FailureReasonEntity.launchId == :launchId;
+
+removeAllFailureReasons:
+DELETE FROM FailureReasonEntity;
