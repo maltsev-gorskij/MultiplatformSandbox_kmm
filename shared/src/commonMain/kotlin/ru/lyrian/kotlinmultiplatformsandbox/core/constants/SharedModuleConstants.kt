@@ -10,6 +10,6 @@ object KtorConstants {
     const val SPACEX_LAUNCHES_ENDPOINT = "launches"
 }
 
-//object TestConstants {
-//    const val TEST_CONSTANT_1 = "testConstant1"
-//}
+object TestConstants {
+    const val TEST_CONSTANT_1 = "testConstant1"
+}
