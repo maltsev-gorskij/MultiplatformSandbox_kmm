@@ -9,3 +9,7 @@ object KtorConstants {
     const val SPACEX_API_BASE_URL = "https://api.spacexdata.com/v5/"
     const val SPACEX_LAUNCHES_ENDPOINT = "launches"
 }
+
+object TestConstants {
+    const val TEST_CONSTANT = "123"
+}
