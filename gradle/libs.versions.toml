@@ -25,6 +25,7 @@ gradleplugins-android = { module = "com.android.tools.build:gradle", version.ref
 gradleplugins-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 gradleplugins-sqldelight = { module = "com.squareup.sqldelight:gradle-plugin", version.ref = "sqldelight" }
 gradleplugins-kotlinxserialization = { module = "org.jetbrains.kotlin.plugin.serialization:org.jetbrains.kotlin.plugin.serialization.gradle.plugin", version.ref = "kotlin" }
+gradleplugins-cocoapods = { module = "org.jetbrains.kotlin.native.cocoapods:org.jetbrains.kotlin.native.cocoapods.gradle.plugin", version.ref = "kotlin" }
 
 sqldelight-common = { module = "com.squareup.sqldelight:runtime", version.ref = "sqldelight" }
 sqldelight-android = { module = "com.squareup.sqldelight:android-driver", version.ref = "sqldelight" }
