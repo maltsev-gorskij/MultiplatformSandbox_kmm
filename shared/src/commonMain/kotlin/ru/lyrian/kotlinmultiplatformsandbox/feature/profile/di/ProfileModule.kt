@@ -10,7 +10,6 @@ import ru.lyrian.kotlinmultiplatformsandbox.feature.profile.domain.ProfileIntera
 import ru.lyrian.kotlinmultiplatformsandbox.feature.profile.domain.ProfileRepository
 
 internal val profileModule = module {
-
     // Data Sources
     factory {
         ProfileSettingsDataSource(
