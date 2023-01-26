@@ -2,7 +2,7 @@ package ru.lyrian.kotlinmultiplatformsandbox.feature.launches.data.repository
 
 import ru.lyrian.kotlinmultiplatformsandbox.LaunchEntity
 import ru.lyrian.kotlinmultiplatformsandbox.core.utils.toYear
-import ru.lyrian.kotlinmultiplatformsandbox.feature.launches.data.dataSource.RocketLaunchResponse
+import ru.lyrian.kotlinmultiplatformsandbox.feature.launches.data.data_source.RocketLaunchResponse
 import ru.lyrian.kotlinmultiplatformsandbox.feature.launches.domain.RocketLaunch
 
 internal class RocketLaunchMapper {

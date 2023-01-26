@@ -16,4 +16,5 @@ dependencies {
     implementation(libs.gradleplugins.kotlinxserialization)
     implementation(libs.gradleplugins.versions)
     implementation(libs.gradleplugins.cocoapods)
+    implementation(libs.gradleplugins.detekt)
 }

@@ -1,14 +1,17 @@
+import gradle.kotlin.dsl.accessors._658844fd496f8a227ec3e304207fa318.android
+import gradle.kotlin.dsl.accessors._658844fd496f8a227ec3e304207fa318.java
+
 plugins {
     id("com.android.library")
 }
 
 android {
     namespace = "ru.lyrian.kotlinmultiplatformsandbox"
-    compileSdk = AppConfig.compileSdk
+    compileSdk = rootProject.extra["compileSdk"] as Int
 
     defaultConfig {
-        minSdk = AppConfig.minSdk
-        targetSdk = AppConfig.targetSdk
+        minSdk = rootProject.extra["minSdk"] as Int
+        targetSdk = rootProject.extra["targetSdk"] as Int
     }
 
     java {

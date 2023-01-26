@@ -41,5 +41,6 @@ kotlin {
 sqldelight {
     database("AppDatabase") {
         packageName = "ru.lyrian.kotlinmultiplatformsandbox"
+        verifyMigrations = true
     }
 }

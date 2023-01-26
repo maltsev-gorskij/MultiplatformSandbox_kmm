@@ -10,6 +10,7 @@ koin_compose = "3.4.1"
 gradle_versions = "0.44.0"
 crypto = "1.1.0-alpha04"
 settings = "1.0.0"
+detekt = "1.22.0"
 
 [libraries]
 gradleplugins-android = { module = "com.android.tools.build:gradle", version.ref = "android_plugin" }
@@ -18,6 +19,7 @@ gradleplugins-sqldelight = { module = "com.squareup.sqldelight:gradle-plugin", v
 gradleplugins-kotlinxserialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
 gradleplugins-versions = { module = "com.github.ben-manes:gradle-versions-plugin", version.ref = "gradle_versions"}
 gradleplugins-cocoapods = { module = "org.jetbrains.kotlin.native.cocoapods:org.jetbrains.kotlin.native.cocoapods.gradle.plugin", version.ref = "kotlin" }
+gradleplugins-detekt = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
 
 sqldelight-common = { module = "com.squareup.sqldelight:runtime", version.ref = "sqldelight" }
 sqldelight-android = { module = "com.squareup.sqldelight:android-driver", version.ref = "sqldelight" }
@@ -40,6 +42,8 @@ koin-test-junit = { module = "io.insert-koin:koin-test-junit4", version.ref = "k
 
 security-crypto = { module = "androidx.security:security-crypto", version.ref = "crypto" }
 multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "settings" }
+
+detekt-cli = { module = "io.gitlab.arturbosch.detekt:detekt-cli", version.ref = "detekt" }
 
 [bundles]
 ktor-common = [

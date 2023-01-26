@@ -1,6 +1,6 @@
 package ru.lyrian.kotlinmultiplatformsandbox.feature.profile.data.repository.repository
 
-import ru.lyrian.kotlinmultiplatformsandbox.feature.profile.data.dataSource.ProfileSettingsDataSource
+import ru.lyrian.kotlinmultiplatformsandbox.feature.profile.data.data_source.ProfileSettingsDataSource
 import ru.lyrian.kotlinmultiplatformsandbox.feature.profile.domain.Profile
 import ru.lyrian.kotlinmultiplatformsandbox.feature.profile.domain.ProfileRepository
 
