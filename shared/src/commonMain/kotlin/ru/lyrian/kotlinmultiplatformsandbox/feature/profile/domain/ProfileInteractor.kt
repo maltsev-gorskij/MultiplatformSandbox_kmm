@@ -6,7 +6,9 @@ import org.koin.core.component.inject
 class ProfileInteractor : KoinComponent {
     private val profileRepository by inject<ProfileRepository>()
 
+    @Throws(Exception::class)
     fun getProfile(): Profile = profileRepository.getProfile()
 
+    @Throws(Exception::class)
     fun saveProfile(profile: Profile) = profileRepository.saveProfile(profile)
 }

@@ -7,7 +7,6 @@ import ru.lyrian.kotlinmultiplatformsandbox.feature.profile.domain.ProfileReposi
 internal class ProfileRepositoryImpl(
     private val profileSettingsDataSource: ProfileSettingsDataSource
 ) : ProfileRepository {
-    @Throws(Exception::class)
     override fun getProfile(): Profile {
         return Profile(
             userName = profileSettingsDataSource.userName,
@@ -15,7 +14,6 @@ internal class ProfileRepositoryImpl(
         )
     }
 
-    @Throws(Exception::class)
     override fun saveProfile(profile: Profile) {
         profileSettingsDataSource.userName = profile.userName
         profileSettingsDataSource.testEncryptedText = profile.encryptedText
