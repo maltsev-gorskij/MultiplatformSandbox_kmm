@@ -3,7 +3,7 @@ package ru.lyrian.kotlinmultiplatformsandbox.feature.launches.data.repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import ru.lyrian.kotlinmultiplatformsandbox.AppDatabaseQueries
-import ru.lyrian.kotlinmultiplatformsandbox.feature.launches.data.dataSource.LaunchesListApi
+import ru.lyrian.kotlinmultiplatformsandbox.feature.launches.data.data_source.LaunchesListApi
 import ru.lyrian.kotlinmultiplatformsandbox.feature.launches.domain.RocketLaunch
 
 internal class LaunchesRepository(

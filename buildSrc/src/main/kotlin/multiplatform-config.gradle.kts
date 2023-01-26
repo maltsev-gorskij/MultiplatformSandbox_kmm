@@ -1,3 +1,8 @@
+import gradle.kotlin.dsl.accessors._ee9bc90780502274d01e59471d2213f0.kotlin
+import gradle.kotlin.dsl.accessors._ee9bc90780502274d01e59471d2213f0.sourceSets
+import org.gradle.kotlin.dsl.getting
+import org.gradle.kotlin.dsl.withType
+
 plugins {
     id("com.android.library")
     id("kotlin-multiplatform")
