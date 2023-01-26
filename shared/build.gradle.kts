@@ -16,8 +16,8 @@ kotlin {
                 implementation(libs.datetime)
                 implementation(libs.bundles.ktor.common)
                 implementation(libs.sqldelight.common)
-                implementation(libs.sqldelight.coroutines)
                 api(libs.koin.core)
+                implementation(libs.multiplatform.settings)
             }
         }
 
@@ -25,6 +25,7 @@ kotlin {
             dependencies {
                 implementation(libs.ktor.android)
                 implementation(libs.sqldelight.android)
+                implementation(libs.security.crypto)
             }
         }
 

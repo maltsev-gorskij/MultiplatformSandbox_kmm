@@ -1,1 +1,2 @@
-# MultiplatformSandbox_ios
+## Repository information
+Sandbox KMM repository

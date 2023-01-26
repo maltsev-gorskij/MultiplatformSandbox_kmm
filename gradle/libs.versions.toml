@@ -1,36 +1,40 @@
 [versions]
-sqldelight = "1.5.4"
-kotlin = "1.7.20"
+sqldelight = "1.5.5"
+kotlin = "1.8.0"
 coroutines = "1.6.4"
 datetime = "0.4.0"
-android_plugin = "7.3.1"
-ktor = "2.2.1"
+android_plugin = "7.4.0"
+ktor = "2.2.2"
 kotlin_dsl = "2.3.3"
 compose_ui = "1.3.3"
 compose_foundation = "1.3.1"
-compose_material = "1.3.1"
+compose_material = "1.4.0-alpha04"
 compose_activity = "1.6.1"
-compose_compiler = "1.3.2"
+compose_compiler = "1.4.0"
 compose_navigation = "2.5.3"
+compose_coil = "2.2.2"
 accompanist = "0.28.0"
 lifecycle = "2.5.1"
 koin = "3.3.2"
 koin_compose = "3.4.1"
 junit = "4.13.2"
-mockito = "4.6.0"
+mockito = "5.0.0"
 android_core_testing = "2.1.0"
+gradle_versions = "0.44.0"
+crypto = "1.1.0-alpha04"
+settings = "1.0.0"
 
 [libraries]
 gradleplugins-android = { module = "com.android.tools.build:gradle", version.ref = "android_plugin" }
 gradleplugins-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 gradleplugins-sqldelight = { module = "com.squareup.sqldelight:gradle-plugin", version.ref = "sqldelight" }
-gradleplugins-kotlinxserialization = { module = "org.jetbrains.kotlin.plugin.serialization:org.jetbrains.kotlin.plugin.serialization.gradle.plugin", version.ref = "kotlin" }
+gradleplugins-kotlinxserialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
+gradleplugins-versions = { module = "com.github.ben-manes:gradle-versions-plugin", version.ref = "gradle_versions"}
 gradleplugins-cocoapods = { module = "org.jetbrains.kotlin.native.cocoapods:org.jetbrains.kotlin.native.cocoapods.gradle.plugin", version.ref = "kotlin" }
 
 sqldelight-common = { module = "com.squareup.sqldelight:runtime", version.ref = "sqldelight" }
 sqldelight-android = { module = "com.squareup.sqldelight:android-driver", version.ref = "sqldelight" }
 sqldelight-ios = { module = "com.squareup.sqldelight:native-driver", version.ref = "sqldelight" }
-sqldelight-coroutines = { module = "com.squareup.sqldelight:coroutines-extensions", version.ref = "sqldelight" }
 
 ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-content = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
@@ -51,7 +55,9 @@ compose-foundation = { module = "androidx.compose.foundation:foundation", versio
 compose-material = { module = "androidx.compose.material:material", version.ref = "compose_material" }
 compose-activity = { module = "androidx.activity:activity-compose", version.ref = "compose_activity" }
 compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "compose_navigation" }
-accompanist-swiperefresh = { module = "com.google.accompanist:accompanist-swiperefresh", version.ref = "accompanist" }
+compose-coil = { module = "io.coil-kt:coil-compose", version.ref = "compose_coil" }
+accompanist-pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanist" }
+accompanist-pager-indicators = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "accompanist" }
 lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
 
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
@@ -59,6 +65,9 @@ koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin_compose" }
 koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin" }
 koin-test-junit = { module = "io.insert-koin:koin-test-junit4", version.ref = "koin" }
+
+security-crypto = { module = "androidx.security:security-crypto", version.ref = "crypto" }
+multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "settings" }
 
 junit = { module = "junit:junit", version.ref = "junit" }
 
@@ -81,6 +90,8 @@ compose = [
     "compose-material",
     "compose-activity",
     "compose-navigation",
-    "accompanist-swiperefresh",
+    "accompanist-pager",
+    "accompanist-pager-indicators",
+    "compose-coil",
     "lifecycle-viewmodel-compose"
 ]

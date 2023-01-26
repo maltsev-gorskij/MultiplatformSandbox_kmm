@@ -5,12 +5,12 @@ object LoggingConstants {
     const val EXCEPTION_PREFIX = "ApplicationLogTag"
 }
 
-object KtorConstants {
+internal object KtorConstants {
     const val SPACEX_API_BASE_URL = "https://api.spacexdata.com/v5/"
     const val SPACEX_LAUNCHES_ENDPOINT = "launches"
 }
 
-object TestConstants {
-    const val TEST_CONSTANT = "123"
-    const val TEST_CONSTANT2 = "123"
+internal object SettingsConstants {
+    const val ENCRYPTED_SETTINGS_FILENAME = "encrypted_settings"
+    const val UNENCRYPTED_SETTINGSS_FILENAME = "settings"
 }

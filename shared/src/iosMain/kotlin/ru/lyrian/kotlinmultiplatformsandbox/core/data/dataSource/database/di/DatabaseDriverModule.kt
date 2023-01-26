@@ -6,7 +6,7 @@ import org.koin.dsl.module
 import ru.lyrian.kotlinmultiplatformsandbox.core.data.dataSource.database.DatabaseDriverFactory
 
 internal actual class DatabaseDriverModule {
-    actual fun create(): Module = module {
+    internal actual fun create(): Module = module {
         single<SqlDriver> { DatabaseDriverFactory().createDriver() }
     }
 }

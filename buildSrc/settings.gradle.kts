@@ -1,6 +1,5 @@
 rootProject.name = "KotlinMultiplatformSandbox"
 
-@Suppress("UnstableApiUsage")
 dependencyResolutionManagement {
     versionCatalogs {
         create("libs") {
