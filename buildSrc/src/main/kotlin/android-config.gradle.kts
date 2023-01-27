@@ -30,4 +30,10 @@ android {
             res.srcDirs("src/androidMain/res", "src/commonMain/resources")
         }
     }
+
+    buildTypes {
+        release {
+            consumerProguardFiles("proguard-rules.pro")
+        }
+    }
 }

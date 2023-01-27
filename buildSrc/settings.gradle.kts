@@ -1,5 +1,3 @@
-rootProject.name = "KotlinMultiplatformSandbox"
-
 dependencyResolutionManagement {
     versionCatalogs {
         create("libs") {
