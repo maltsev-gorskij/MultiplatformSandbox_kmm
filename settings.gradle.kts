@@ -15,7 +15,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "KotlinMultiplatformSandbox"
+rootProject.name = "KMMSandbox_kmm"
 include(
     ":shared"
 )

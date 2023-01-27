@@ -8,6 +8,7 @@ import io.ktor.client.plugins.logging.Logging
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import org.koin.dsl.module
+import ru.lyrian.kotlinmultiplatformsandbox.core.build_info.BuildInfo
 
 internal val apiClientModule = module {
     single {
@@ -22,14 +23,17 @@ internal val apiClientModule = module {
                     }
                 )
             }
-            install(Logging) {
-                logger = object : Logger {
-                    override fun log(message: String) {
-                        println("HTTP-Client: $message")
+            if (BuildInfo.isDebug) {
+                install(Logging) {
+                    logger = object : Logger {
+                        override fun log(message: String) {
+                            println("HTTP-Client: $message")
+                        }
                     }
+                    level = LogLevel.ALL
                 }
-                level = LogLevel.ALL
             }
+
         }
     }
 }
