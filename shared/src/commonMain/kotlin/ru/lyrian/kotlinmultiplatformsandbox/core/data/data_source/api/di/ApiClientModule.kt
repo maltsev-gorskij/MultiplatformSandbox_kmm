@@ -9,6 +9,8 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import org.koin.dsl.module
 import ru.lyrian.kotlinmultiplatformsandbox.core.build_info.BuildInfo
+import ru.lyrian.kotlinmultiplatformsandbox.core.constants.KtorConstants
+import ru.lyrian.kotlinmultiplatformsandbox.core.logger.SharedLogger
 
 internal val apiClientModule = module {
     single {
@@ -27,7 +29,11 @@ internal val apiClientModule = module {
                 install(Logging) {
                     logger = object : Logger {
                         override fun log(message: String) {
-                            println("HTTP-Client: $message")
+                            SharedLogger.logDebug(
+                                    message = message,
+                                    throwable = null,
+                                    tag = KtorConstants.LOG_TAG
+                                )
                         }
                     }
                     level = LogLevel.ALL

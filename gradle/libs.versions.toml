@@ -11,6 +11,7 @@ gradle_versions = "0.44.0"
 crypto = "1.1.0-alpha04"
 settings = "1.0.0"
 detekt = "1.22.0"
+napier = "2.6.1"
 
 [libraries]
 gradleplugins-android = { module = "com.android.tools.build:gradle", version.ref = "android_plugin" }
@@ -44,6 +45,8 @@ security-crypto = { module = "androidx.security:security-crypto", version.ref = 
 multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "settings" }
 
 detekt-cli = { module = "io.gitlab.arturbosch.detekt:detekt-cli", version.ref = "detekt" }
+
+napier = { module = "io.github.aakira:napier", version.ref = "napier" }
 
 [bundles]
 ktor-common = [

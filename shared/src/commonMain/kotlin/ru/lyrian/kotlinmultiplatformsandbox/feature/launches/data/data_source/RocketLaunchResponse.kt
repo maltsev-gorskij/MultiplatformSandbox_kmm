@@ -37,7 +37,7 @@ internal data class RocketLaunchResponse(
     }
 
     @Serializable
-    data class RocketLaunchResponseFailure(
+    internal data class RocketLaunchResponseFailure(
         val reason: String
     )
 }
