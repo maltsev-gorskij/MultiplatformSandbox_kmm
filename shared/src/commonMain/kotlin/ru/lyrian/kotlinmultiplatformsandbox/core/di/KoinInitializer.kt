@@ -2,6 +2,8 @@ package ru.lyrian.kotlinmultiplatformsandbox.core.di
 
 import org.koin.core.KoinApplication
 import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
+import ru.lyrian.kotlinmultiplatformsandbox.core.build_info.BuildInfo
 
 expect class KoinInitializer {
     fun initializeKoin()
@@ -10,6 +12,7 @@ expect class KoinInitializer {
 internal fun initializeSharedGraph(koinApplication: KoinApplication.() -> Unit) {
     startKoin {
         koinApplication()
-        modules(sharedModules())
+        if (BuildInfo.isDebug) logger(logger = KoinLogger(level = Level.DEBUG))
+        modules(commonModules() + featureModules())
     }
 }

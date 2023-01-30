@@ -18,6 +18,7 @@ kotlin {
                 implementation(libs.sqldelight.common)
                 api(libs.koin.core)
                 implementation(libs.multiplatform.settings)
+                implementation(libs.napier)
             }
         }
 
