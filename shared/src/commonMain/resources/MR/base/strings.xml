@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+    <!--    Common-->
+    <string name="common_save">Save</string>
+
+    <!--    Bottom Navigation-->
+    <string name="bottom_nav_launches">Launches</string>
+    <string name="bottom_nav_favourites">Favourites</string>
+    <string name="bottom_nav_profile">Profile</string>
+
+    <!--    Launches-->
+    <string name="launches_header_text">SpaceX Launches</string>
+
+    <string name="launch_card_name">Launch name: %s</string>
+    <string name="launch_card_successful">Successful</string>
+    <string name="launch_card_unsuccessful">Unsuccessful</string>
+    <string name="launch_card_year">Launch year: %d</string>
+    <string name="launch_card_details">Launch details: %s</string>
+
+    <!--    Profile-->
+    <string name="profile_username_title">Username</string>
+    <string name="profile_username_hint">Enter your name</string>
+    <string name="profile_text_title">Encrypted text</string>
+    <string name="profile_text_hint">Enter your text</string>
+</resources>
