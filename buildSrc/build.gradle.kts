@@ -17,4 +17,5 @@ dependencies {
     implementation(libs.gradleplugins.versions)
     implementation(libs.gradleplugins.cocoapods)
     implementation(libs.gradleplugins.detekt)
+    implementation(libs.gradleplugins.mokoresources)
 }

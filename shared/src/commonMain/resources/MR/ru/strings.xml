@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+    <!--    Common-->
+    <string name="common_save">Сохранить</string>
+
+    <!--    Bottom Navigation-->
+    <string name="bottom_nav_launches">Запуски</string>
+    <string name="bottom_nav_favourites">Избранное</string>
+    <string name="bottom_nav_profile">Профиль</string>
+
+    <!--    Launches-->
+    <string name="launches_header_text">Запуски SpaceX</string>
+
+    <string name="launch_card_name">Название запуска: %s</string>
+    <string name="launch_card_successful">Успешный</string>
+    <string name="launch_card_unsuccessful">Не успешный</string>
+    <string name="launch_card_year">Год запуска: %d</string>
+    <string name="launch_card_details">Детали запуска: %s</string>
+
+    <!--    Profile-->
+    <string name="profile_username_title">Имя</string>
+    <string name="profile_username_hint">Введите Ваше имя</string>
+    <string name="profile_text_title">Зашифрованный текст</string>
+    <string name="profile_text_hint">Введите текст</string>
+</resources>

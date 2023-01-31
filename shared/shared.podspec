@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'shared'
-    spec.version                  = '1.0'
+    spec.version                  = '1.1'
     spec.homepage                 = 'https://github.com/maltsev-gorskij/MultiplatformSandbox_kmm'
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
