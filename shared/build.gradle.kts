@@ -7,6 +7,7 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     kotlin("plugin.serialization")
+    id("dev.icerock.mobile.multiplatform-resources")
 }
 
 kotlin {
