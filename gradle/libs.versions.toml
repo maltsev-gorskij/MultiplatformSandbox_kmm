@@ -11,7 +11,7 @@ gradle_versions = "0.44.0"
 crypto = "1.1.0-alpha04"
 settings = "1.0.0"
 detekt = "1.22.0"
-resources = "0.20.1"
+resources = "0.20.1" # if version changes, update version in native-cocoapods-config.kts
 napier = "2.6.1"
 
 [libraries]
