@@ -1,13 +1,13 @@
 plugins {
+    kotlin("multiplatform")
+    id("com.android.library")
+    kotlin("plugin.serialization")
     id("android-config")
     id("multiplatform-config")
     id("native-cocoapods-config")
     id("maven-publish-config")
     id("sqldelight-config")
-    kotlin("multiplatform")
-    id("com.android.library")
-    kotlin("plugin.serialization")
-    id("dev.icerock.mobile.multiplatform-resources")
+    id("multiplatform-resources-config")
 }
 
 kotlin {
