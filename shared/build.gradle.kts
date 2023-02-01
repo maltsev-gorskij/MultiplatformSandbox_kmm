@@ -3,10 +3,10 @@ plugins {
     id("multiplatform-config")
     id("native-cocoapods-config")
     id("maven-publish-config")
+    id("sqldelight-config")
     kotlin("multiplatform")
     id("com.android.library")
     kotlin("plugin.serialization")
-    id("com.squareup.sqldelight")
 }
 
 kotlin {
@@ -35,12 +35,5 @@ kotlin {
                 implementation(libs.sqldelight.ios)
             }
         }
-    }
-}
-
-sqldelight {
-    database("AppDatabase") {
-        packageName = "ru.lyrian.kotlinmultiplatformsandbox"
-        verifyMigrations = true
     }
 }
