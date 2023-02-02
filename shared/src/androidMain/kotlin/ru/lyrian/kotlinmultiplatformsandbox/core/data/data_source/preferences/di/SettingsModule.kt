@@ -24,7 +24,7 @@ internal actual class SettingsModule {
             ), false)
         }
         single<Settings>(named(SettingQualifiers.NON_ENCRYPTED)) {
-            SharedPreferencesSettings.Factory(get()).create(SettingsConstants.UNENCRYPTED_SETTINGSS_FILENAME)
+            SharedPreferencesSettings.Factory(get()).create(SettingsConstants.UNENCRYPTED_SETTINGS_FILENAME)
         }
     }
 }
