@@ -18,4 +18,5 @@ dependencies {
     implementation(libs.gradleplugins.cocoapods)
     implementation(libs.gradleplugins.detekt)
     implementation(libs.gradleplugins.mokoresources)
+    implementation(libs.gradleplugins.kswift)
 }

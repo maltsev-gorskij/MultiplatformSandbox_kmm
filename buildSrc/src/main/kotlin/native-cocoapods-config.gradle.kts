@@ -18,7 +18,9 @@ kotlin {
         framework {
             baseName = "shared"
             isStatic = false
+
             export("dev.icerock.moko:resources:0.20.1")
+            export("dev.icerock.moko:mvvm-state:0.15.0")
         }
 
         xcodeConfigurationToNativeBuildType["CUSTOM_DEBUG"] = NativeBuildType.DEBUG

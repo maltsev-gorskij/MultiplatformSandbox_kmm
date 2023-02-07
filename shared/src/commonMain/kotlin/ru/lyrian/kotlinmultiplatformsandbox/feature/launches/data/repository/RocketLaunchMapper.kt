@@ -2,7 +2,7 @@ package ru.lyrian.kotlinmultiplatformsandbox.feature.launches.data.repository
 
 import ru.lyrian.kotlinmultiplatformsandbox.LaunchEntity
 import ru.lyrian.kotlinmultiplatformsandbox.core.utils.toYear
-import ru.lyrian.kotlinmultiplatformsandbox.feature.launches.data.data_source.RocketLaunchResponse
+import ru.lyrian.kotlinmultiplatformsandbox.feature.launches.data.data_source.api.RocketLaunchResponse
 import ru.lyrian.kotlinmultiplatformsandbox.feature.launches.domain.RocketLaunch
 
 internal class RocketLaunchMapper {
@@ -10,7 +10,7 @@ internal class RocketLaunchMapper {
         RocketLaunch(
             flightNumber = rocketLaunchResponse.flightNumber,
             missionName = rocketLaunchResponse.name,
-            launchYear = rocketLaunchResponse.staticFireDateUtc?.toYear() ?: error("Launch date is null"),
+            launchYear = rocketLaunchResponse.staticFireDateUtc?.toYear(),
             launchDateUTC = rocketLaunchResponse.staticFireDateUtc,
             details = rocketLaunchResponse.details ?: "",
             launchSuccess = rocketLaunchResponse.success ?: false,
