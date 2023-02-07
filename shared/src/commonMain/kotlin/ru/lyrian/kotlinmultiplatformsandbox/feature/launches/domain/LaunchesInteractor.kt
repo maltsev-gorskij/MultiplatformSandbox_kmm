@@ -7,20 +7,32 @@ import ru.lyrian.kotlinmultiplatformsandbox.feature.launches.data.repository.Lau
 class LaunchesInteractor: KoinComponent {
     private val launchesRepository: LaunchesRepository by inject()
 
-    @Throws(Exception::class)
-    suspend fun getAllLaunches(forceReload: Boolean = false): List<RocketLaunch> {
-        val cachedLaunches = launchesRepository.getAllCachedLaunches()
+    /**
+     * Initialize Pagination and fetches the first page.
+     * Returns PaginationState object.
+     * Object contain methods to refresh and load new page and observable LiveData's of current state
+     */
+    suspend fun initializePagination(): PaginationState {
+        launchesRepository.loadFirstPage()
 
-        return if (cachedLaunches.isNotEmpty() && !forceReload) {
-            cachedLaunches
-        } else {
-            launchesRepository.getUpToDateLaunches().also {
-                launchesRepository.clearDatabase()
-                launchesRepository.createLaunches(it)
-            }
-        }
+        return PaginationState(
+            resourceState = launchesRepository.resourceState,
+            nextPageLoadingState = launchesRepository.nextPageLoadingState,
+            refreshLoadingState = launchesRepository.refreshLoadingState
+        )
     }
 
-    @Throws(Exception::class)
-    suspend fun getLaunchById(launchId: String): RocketLaunch = launchesRepository.getLaunchById(launchId)
+    /**
+     * Refresh all paginated data from network.
+    * */
+    suspend fun refreshPagination() = launchesRepository.refreshPagination()
+
+    /**
+     * Request next page load.
+     * */
+    suspend fun loadNextPage() = launchesRepository.loadNextPage()
+
+    // Launches Details screen fetching cached launch data
+//    @Throws(Exception::class)
+//    suspend fun getLaunchById(launchId: String): RocketLaunch = launchesRepository.getLaunchById(launchId)
 }

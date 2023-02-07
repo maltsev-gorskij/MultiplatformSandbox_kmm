@@ -4,9 +4,12 @@ import io.ktor.client.HttpClient
 import io.ktor.client.plugins.DefaultRequest
 import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.plugins.defaultRequest
 import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
+import io.ktor.http.ContentType
+import io.ktor.http.contentType
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import org.koin.core.qualifier.named
@@ -19,6 +22,9 @@ import ru.lyrian.kotlinmultiplatformsandbox.core.logger.SharedLogger
 internal val apiClientModule = module {
     factory<HttpClient>(named(ApiClientQualifiers.COMMON_CLIENT)) {
         HttpClient {
+            defaultRequest {
+                contentType(ContentType.Application.Json)
+            }
             install(ContentNegotiation) {
                 json(
                     Json {
@@ -46,7 +52,7 @@ internal val apiClientModule = module {
                             )
                         }
                     }
-                    level = LogLevel.ALL
+                    level = LogLevel.BODY
                 }
             }
         }
