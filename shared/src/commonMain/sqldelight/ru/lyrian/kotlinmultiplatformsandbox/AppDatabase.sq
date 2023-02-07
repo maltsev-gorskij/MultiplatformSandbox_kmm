@@ -1,12 +1,12 @@
 CREATE TABLE IF NOT EXISTS LaunchEntity (
+    id              TEXT NOT NULL PRIMARY KEY,
     flightNumber    INTEGER NOT NULL,
     missionName     TEXT    NOT NULL,
-    launchYear      INTEGER AS Int NOT NULL DEFAULT 0,
+    launchDateUTC   TEXT,
+    launchYear      INTEGER AS Int,
     details         TEXT,
     launchSuccess   INTEGER AS Boolean DEFAULT NULL,
-    launchDateUTC   TEXT    NOT NULL,
     articleUrl      TEXT,
-    id              TEXT NOT NULL,
     patchImageUrl   TEXT
 );
 
@@ -38,8 +38,9 @@ DELETE FROM LaunchEntity;
 
 
 CREATE TABLE IF NOT EXISTS FlickrImageEntity (
-    launchId      TEXT NOT NULL,
-    imageUrl      TEXT NOT NULL
+    id          INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    imageUrl    TEXT NOT NULL,
+    launchId    TEXT NOT NULL
 );
 
 insertFlickrImage:
@@ -58,7 +59,8 @@ removeAllFlickImages:
 DELETE FROM FlickrImageEntity;
 
 CREATE TABLE IF NOT EXISTS FailureReasonEntity (
-    launchId      TEXT NOT NULL,
+    id          INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    launchId    TEXT NOT NULL,
     reason      TEXT NOT NULL
 );
 

@@ -1,7 +1,21 @@
-package ru.lyrian.kotlinmultiplatformsandbox.feature.launches.data.data_source
+package ru.lyrian.kotlinmultiplatformsandbox.feature.launches.data.data_source.api
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+
+@Serializable
+internal data class RocketLaunchesPagingResponse(
+    val docs: List<RocketLaunchResponse>,
+    val totalDocs: Int,
+    val limit: Int,
+    val totalPages: Int,
+    val page: Int,
+    val pagingCounter: Int,
+    val hasPrevPage: Boolean,
+    val hasNextPage: Boolean,
+    val prevPage: Int? = null,
+    val nextPage: Int? = null
+)
 
 @Serializable
 internal data class RocketLaunchResponse(
