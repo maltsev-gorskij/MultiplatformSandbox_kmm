@@ -29,13 +29,18 @@ SELECT *
 FROM LaunchEntity
 WHERE LaunchEntity.id == :launchId;
 
-getAllLaunches:
-SELECT *
+getLaunchesCount:
+SELECT COUNT(*)
 FROM LaunchEntity;
+
+getLaunchesByPageSizeAndOffset:
+SELECT *
+FROM LaunchEntity
+LIMIT :pageSize
+OFFSET :queryOffset;
 
 removeAllLaunches:
 DELETE FROM LaunchEntity;
-
 
 CREATE TABLE IF NOT EXISTS FlickrImageEntity (
     id          INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
