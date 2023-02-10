@@ -3,7 +3,6 @@ package ru.lyrian.kotlinmultiplatformsandbox.core.constants
 internal object KtorConstants {
     const val LOG_TAG = "HTTP Client"
     const val SPACEX_API_BASE_URL = "https://api.spacexdata.com/v5/"
-    const val SPACEX_LAUNCHES_PAGING_ENDPOINT = "launches/query"
     const val CONNECTION_TIMEOUT = 10_000L
     const val REQUEST_TIMEOUT = 10_000L
 }

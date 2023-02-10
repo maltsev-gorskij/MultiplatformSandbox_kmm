@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id("com.github.ben-manes.versions")
     id("io.gitlab.arturbosch.detekt")
@@ -51,6 +53,10 @@ task<Delete>("disableGitHooks") {
             include("*")
         }
     )
+}
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions.useK2 = true
 }
 
 dependencies {
