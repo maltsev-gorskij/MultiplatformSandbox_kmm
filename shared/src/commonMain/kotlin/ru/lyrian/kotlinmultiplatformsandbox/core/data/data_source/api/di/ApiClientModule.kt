@@ -8,6 +8,7 @@ import io.ktor.client.plugins.defaultRequest
 import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
+import io.ktor.client.plugins.resources.Resources
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
 import io.ktor.serialization.kotlinx.json.json
@@ -40,6 +41,8 @@ internal val apiClientModule = module {
                 requestTimeoutMillis = KtorConstants.REQUEST_TIMEOUT
                 connectTimeoutMillis = KtorConstants.CONNECTION_TIMEOUT
             }
+
+            install(Resources)
 
             if (BuildInfo.isDebug) {
                 install(Logging) {
