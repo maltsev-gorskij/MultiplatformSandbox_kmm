@@ -32,7 +32,7 @@ class ValidationInteractor: KoinComponent {
 
     @Throws(Exception::class)
     suspend fun throwSomeException() {
-        throw SomeException("bla bla bla")
+        throw KtorErrors.GeneralNetworkError(errorCode = 123, errorMessage = "Some Exception")
     }
 }
 
