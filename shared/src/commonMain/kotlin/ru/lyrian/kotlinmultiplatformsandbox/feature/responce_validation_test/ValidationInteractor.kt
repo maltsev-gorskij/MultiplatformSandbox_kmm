@@ -34,7 +34,10 @@ class ValidationInteractor : KoinComponent {
     fun throwSomeException(): ResourceState<String, Throwable> {
         var resourceState: ResourceState<String, Throwable> = ResourceState.Empty()
         runCatching {
-            throw DatabaseFetchException("123")
+            throw KtorErrors.ClientRequest(
+                errorCode = 404,
+                errorMessage = "Dangerous error"
+            )
         }.onSuccess {
             resourceState = ResourceState.Success("123")
         }.onFailure {
