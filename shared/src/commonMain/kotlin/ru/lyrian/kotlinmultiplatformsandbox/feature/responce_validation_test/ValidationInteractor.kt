@@ -1,5 +1,6 @@
 package ru.lyrian.kotlinmultiplatformsandbox.feature.responce_validation_test
 
+import dev.icerock.moko.mvvm.ResourceState
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.resources.get
 import io.ktor.resources.Resource
@@ -7,7 +8,7 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import org.koin.core.qualifier.named
 
-class ValidationInteractor: KoinComponent {
+class ValidationInteractor : KoinComponent {
     private val httpClient: HttpClient by inject(qualifier = named(DiValidationModuleQualifiers.DEBUG_HTTP_BIN_CLIENT))
 
     @Throws(Exception::class)
@@ -30,10 +31,21 @@ class ValidationInteractor: KoinComponent {
         httpClient.get(Get())
     }
 
-    fun throwSomeException(): Result<String> = runCatching { throw DatabaseFetchException("error text") }
+    fun throwSomeException(): ResourceState<String, Throwable> {
+        var resourceState: ResourceState<String, Throwable> = ResourceState.Empty()
+        runCatching {
+            throw DatabaseFetchException("123")
+        }.onSuccess {
+            resourceState = ResourceState.Success("123")
+        }.onFailure {
+            resourceState = ResourceState.Failed(it)
+        }
+
+        return resourceState
+    }
 }
 
-class DatabaseFetchException(message: String): Exception(message)
+class DatabaseFetchException(message: String) : Exception(message)
 
 @Resource("/status")
 class Status {
