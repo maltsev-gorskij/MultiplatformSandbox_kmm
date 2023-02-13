@@ -30,13 +30,8 @@ class ValidationInteractor: KoinComponent {
         httpClient.get(Get())
     }
 
-    @Throws(Exception::class)
-    fun throwSomeException(): Result<String> {
-        return runCatching { throw DatabaseFetchException("error text") }
-    }
+    fun throwSomeException(): Result<String> = runCatching { throw DatabaseFetchException("error text") }
 }
-
-class IOSError(throwable: Throwable)
 
 class DatabaseFetchException(message: String): Exception(message)
 
