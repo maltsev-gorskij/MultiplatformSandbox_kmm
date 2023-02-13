@@ -31,7 +31,7 @@ class ValidationInteractor : KoinComponent {
         httpClient.get(Get())
     }
 
-    fun throwSomeException(): ResourceState<String, Throwable> {
+    suspend fun throwSomeException(): ResourceState<String, Throwable> {
         var resourceState: ResourceState<String, Throwable> = ResourceState.Empty()
         runCatching {
             throw KtorErrors.ClientRequest(
@@ -47,6 +47,27 @@ class ValidationInteractor : KoinComponent {
         return resourceState
     }
 }
+
+sealed class KmmResult<R, E> {
+    class Success<R, E>(val data: R) : KmmResult<R, E>()
+    class Exception<R, E>(val exception: E) : KmmResult<R, E>()
+}
+
+/*sealed class ResourceState<out T, out E> {
+    data class Success<out T, out E>(val data: T) : ResourceState<T, E>()
+    data class Failed<out T, out E>(val error: E) : ResourceState<T, E>()
+    class Loading<out T, out E> : ResourceState<T, E>()
+    class Empty<out T, out E> : ResourceState<T, E>()
+
+    fun isLoading(): Boolean = this is Loading
+    fun isSuccess(): Boolean = this is Success
+    fun isEmpty(): Boolean = this is Empty
+    fun isFailed(): Boolean = this is Failed
+
+    fun dataValue(): T? = (this as? Success)?.data
+
+    fun errorValue(): E? = (this as? Failed)?.error
+}*/
 
 class DatabaseFetchException(message: String) : Exception(message)
 
