@@ -10,5 +10,5 @@ internal data class PagingRequest(
 @Serializable
 internal data class PagingRequestOptions(
     val page: Int,
-    val limit: Int,
+    val limit: Int
 )

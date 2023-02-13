@@ -18,8 +18,9 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                api(libs.datetime)
-                implementation(libs.bundles.ktor.common)
+                implementation(libs.datetime)
+                api(libs.ktor.core)
+                implementation(libs.bundles.ktor)
                 implementation(libs.sqldelight.common)
                 api(libs.koin.core)
                 implementation(libs.multiplatform.settings)
