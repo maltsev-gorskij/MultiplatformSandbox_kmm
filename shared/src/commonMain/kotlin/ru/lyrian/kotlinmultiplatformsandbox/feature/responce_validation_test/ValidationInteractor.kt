@@ -30,13 +30,15 @@ class ValidationInteractor: KoinComponent {
         httpClient.get(Get())
     }
 
-    @Throws(KtorErrors::class)
-    fun throwSomeException() {
-        throw KtorErrors.GeneralNetworkError(errorCode = 123, errorMessage = "Some Exception")
+    @Throws(Exception::class)
+    fun throwSomeException(): Result<String> {
+        return runCatching { throw DatabaseFetchException("error text") }
     }
 }
 
-class SomeException(message: String): Exception(message)
+class IOSError(throwable: Throwable)
+
+class DatabaseFetchException(message: String): Exception(message)
 
 @Resource("/status")
 class Status {
