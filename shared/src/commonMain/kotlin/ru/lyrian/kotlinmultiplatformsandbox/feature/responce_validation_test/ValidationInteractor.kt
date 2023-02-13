@@ -25,7 +25,7 @@ class Status {
     @Resource("/300")
     class Redirection300(val parent: Status = Status())
 
-    @Resource("/404")
+    @Resource("/400")
     class ClientError400(val parent: Status = Status())
 
     @Resource("/500")
