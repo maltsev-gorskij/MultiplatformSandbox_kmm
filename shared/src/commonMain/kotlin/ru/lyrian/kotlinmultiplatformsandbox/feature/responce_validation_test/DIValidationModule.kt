@@ -60,7 +60,12 @@ internal val diValidationModule = module {
                                 errorMessage = throwable.response.status.description
                             )
                         }
-                        else -> { return@handleResponseExceptionWithRequest }
+                        else -> {
+                            throw KtorErrors.GeneralNetworkError(
+                                errorCode = 0,
+                                errorMessage = throwable.message ?: ""
+                            )
+                        }
                     }
                 }
             }
@@ -82,4 +87,5 @@ sealed class KtorErrors(val errorCode: Int, val errorMessage: String): RuntimeEx
     class RedirectResponse(errorCode: Int, errorMessage: String) : KtorErrors(errorCode, errorMessage)
     class ClientRequest(errorCode: Int, errorMessage: String) : KtorErrors(errorCode, errorMessage)
     class ServerResponse(errorCode: Int, errorMessage: String) : KtorErrors(errorCode, errorMessage)
+    class GeneralNetworkError(errorCode: Int, errorMessage: String) : KtorErrors(errorCode, errorMessage)
 }
