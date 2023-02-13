@@ -10,6 +10,7 @@ import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.plugins.resources.Resources
+import org.koin.core.module.dsl.factoryOf
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import ru.lyrian.kotlinmultiplatformsandbox.core.constants.KtorConstants
@@ -72,7 +73,7 @@ internal val diValidationModule = module {
         }
     }
 
-    factory { ValidationInteractor(get<HttpClient>(named(DiValidationModuleQualifiers.DEBUG_HTTP_BIN_CLIENT))) }
+    factoryOf(::ValidationInteractor)
 }
 
 internal object DiValidationModuleQualifiers {

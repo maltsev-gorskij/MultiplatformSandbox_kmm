@@ -3,10 +3,13 @@ package ru.lyrian.kotlinmultiplatformsandbox.feature.responce_validation_test
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.resources.get
 import io.ktor.resources.Resource
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
+import org.koin.core.qualifier.named
 
-class ValidationInteractor constructor(
-    private val httpClient: HttpClient
-) {
+class ValidationInteractor: KoinComponent {
+    private val httpClient: HttpClient by inject(qualifier = named(DiValidationModuleQualifiers.DEBUG_HTTP_BIN_CLIENT))
+
     @Throws(Exception::class)
     suspend fun get300Error() {
         httpClient.get(Status.Redirection300())
