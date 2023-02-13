@@ -29,7 +29,14 @@ class ValidationInteractor: KoinComponent {
     suspend fun getRandomNetworkResult() {
         httpClient.get(Get())
     }
+
+    @Throws(Exception::class)
+    suspend fun throwSomeException() {
+        throw SomeException("bla bla bla")
+    }
 }
+
+class SomeException(message: String): Exception(message)
 
 @Resource("/status")
 class Status {
