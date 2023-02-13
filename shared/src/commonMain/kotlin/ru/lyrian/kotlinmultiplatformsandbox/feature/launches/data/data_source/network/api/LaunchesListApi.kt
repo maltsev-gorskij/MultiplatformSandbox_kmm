@@ -14,4 +14,3 @@ internal class LaunchesListApi(private val httpClient: HttpClient) {
             }
             .body()
 }
-

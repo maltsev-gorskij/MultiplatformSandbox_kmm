@@ -60,8 +60,7 @@ detekt-cli = { module = "io.gitlab.arturbosch.detekt:detekt-cli", version.ref = 
 napier = { module = "io.github.aakira:napier", version.ref = "napier" }
 
 [bundles]
-ktor-common = [
-    "ktor-core",
+ktor = [
     "ktor-content",
     "ktor-serialization",
     "ktor-logging",
