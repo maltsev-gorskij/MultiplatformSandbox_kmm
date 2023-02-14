@@ -83,10 +83,3 @@ internal object DiValidationModuleQualifiers {
 internal object DIValidationModuleConstants {
     const val HTTP_BIN_BASE_URL = "https://httpbin.org/"
 }
-
-sealed class KtorErrors(val errorCode: Int, val errorMessage: String): Exception(errorMessage) {
-    class RedirectResponse(errorCode: Int, errorMessage: String) : KtorErrors(errorCode, errorMessage)
-    class ClientRequest(errorCode: Int, errorMessage: String) : KtorErrors(errorCode, errorMessage)
-    class ServerResponse(errorCode: Int, errorMessage: String) : KtorErrors(errorCode, errorMessage)
-    class GeneralNetworkError(errorCode: Int, errorMessage: String) : KtorErrors(errorCode, errorMessage)
-}
