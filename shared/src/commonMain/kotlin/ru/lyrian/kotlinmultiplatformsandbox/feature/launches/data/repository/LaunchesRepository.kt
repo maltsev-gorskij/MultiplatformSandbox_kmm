@@ -4,7 +4,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import ru.lyrian.kotlinmultiplatformsandbox.core.constants.PaginationConstants
-import ru.lyrian.kotlinmultiplatformsandbox.core.data.pagination.PaginationState
+import ru.lyrian.kotlinmultiplatformsandbox.core.data.pagination.PaginationProvider
 import ru.lyrian.kotlinmultiplatformsandbox.core.data.pagination.PagingSource
 import ru.lyrian.kotlinmultiplatformsandbox.feature.launches.data.data_source.database.LaunchesDatabaseDataSource
 import ru.lyrian.kotlinmultiplatformsandbox.feature.launches.data.data_source.network.LaunchesNetworkDataSource
@@ -49,7 +49,7 @@ internal class LaunchesRepository(
         comparator = { a: RocketLaunch, b: RocketLaunch -> a.id.compareTo(b.id) }
     )
 
-    suspend fun providePaginationState(): PaginationState<RocketLaunch> = pagingSource.providePaginationState()
+    fun getPaginationProvider(): PaginationProvider<RocketLaunch> = pagingSource.getPaginationProvider()
 
     suspend fun getLaunchById(launchId: String): RocketLaunch =
         withContext(Dispatchers.Default) {

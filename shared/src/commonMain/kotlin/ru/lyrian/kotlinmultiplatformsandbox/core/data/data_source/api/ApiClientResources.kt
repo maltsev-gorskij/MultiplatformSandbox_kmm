@@ -1,4 +1,4 @@
-package ru.lyrian.kotlinmultiplatformsandbox.core.data.data_source.api.di
+package ru.lyrian.kotlinmultiplatformsandbox.core.data.data_source.api
 
 import io.ktor.resources.Resource
 

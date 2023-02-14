@@ -6,7 +6,8 @@ import ru.lyrian.kotlinmultiplatformsandbox.feature.launches.domain.RocketLaunch
 
 internal class LaunchesDatabaseDataSource constructor(
     private val appDatabaseQueries: AppDatabaseQueries,
-    private val rocketLaunchMapper: RocketLaunchMapper
+    private val rocketLaunchMapper: RocketLaunchMapper,
+    private val executeAsOneWrapper: ExecuteAsOneWrapper
 ) {
     fun clearDatabase() =
         appDatabaseQueries.transaction {
@@ -76,9 +77,11 @@ internal class LaunchesDatabaseDataSource constructor(
     fun getLaunchById(launchId: String): RocketLaunch =
         appDatabaseQueries.transactionWithResult {
             rocketLaunchMapper(
-                launchEntity = appDatabaseQueries
-                    .getLaunchById(launchId)
-                    .executeAsOne(),
+                launchEntity = executeAsOneWrapper {
+                    appDatabaseQueries
+                        .getLaunchById(launchId)
+                        .executeAsOne()
+                },
                 flickrImagesUrls = appDatabaseQueries
                     .getAllFlickrImagesByLaunchId(launchId)
                     .executeAsList(),
