@@ -22,7 +22,7 @@ gradleplugins-android = { module = "com.android.tools.build:gradle", version.ref
 gradleplugins-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 gradleplugins-sqldelight = { module = "com.squareup.sqldelight:gradle-plugin", version.ref = "sqldelight" }
 gradleplugins-kotlinxserialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
-gradleplugins-versions = { module = "com.github.ben-manes:gradle-versions-plugin", version.ref = "gradle_versions"}
+gradleplugins-versions = { module = "com.github.ben-manes:gradle-versions-plugin", version.ref = "gradle_versions" }
 gradleplugins-cocoapods = { module = "org.jetbrains.kotlin.native.cocoapods:org.jetbrains.kotlin.native.cocoapods.gradle.plugin", version.ref = "kotlin" }
 gradleplugins-detekt = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
 gradleplugins-mokoresources = { module = "dev.icerock.moko:resources-generator", version.ref = "moko_resources" }
@@ -49,8 +49,8 @@ koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin" }
 koin-test-junit = { module = "io.insert-koin:koin-test-junit4", version.ref = "koin" }
 
 moko-resources-common = { module = "dev.icerock.moko:resources", version.ref = "moko_resources" }
-moko-paging = { module = "dev.icerock.moko:paging", version.ref = "moko_paging"}
-moko-state = { module = "dev.icerock.moko:mvvm-state", version.ref = "moko_state"}
+moko-paging = { module = "dev.icerock.moko:paging", version.ref = "moko_paging" }
+moko-state = { module = "dev.icerock.moko:mvvm-state", version.ref = "moko_state" }
 
 security-crypto = { module = "androidx.security:security-crypto", version.ref = "crypto" }
 multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "settings" }

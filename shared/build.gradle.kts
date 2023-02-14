@@ -1,7 +1,5 @@
 plugins {
-    // platform plugins
-    kotlin("multiplatform")
-    id("com.android.library")
+    // Platform plugins
     kotlin("plugin.serialization")
 
     // Convention plugins
@@ -12,6 +10,9 @@ plugins {
     id("sqldelight-config")
     id("multiplatform-resources-config")
     id("moko-kswift-config")
+
+    // Dependencies pluging
+    id("com.rickclephas.kmp.nativecoroutines") version "0.13.3"
 }
 
 kotlin {
@@ -19,7 +20,7 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(libs.datetime)
-                api(libs.ktor.core)
+                implementation(libs.ktor.core)
                 implementation(libs.bundles.ktor)
                 implementation(libs.sqldelight.common)
                 api(libs.koin.core)

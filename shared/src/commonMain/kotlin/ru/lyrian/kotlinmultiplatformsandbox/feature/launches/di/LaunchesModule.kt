@@ -6,7 +6,8 @@ import org.koin.core.module.dsl.singleOf
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import ru.lyrian.kotlinmultiplatformsandbox.AppDatabase
-import ru.lyrian.kotlinmultiplatformsandbox.core.data.data_source.api.di.ApiClientQualifiers
+import ru.lyrian.kotlinmultiplatformsandbox.core.data.data_source.api.ApiClientQualifiers
+import ru.lyrian.kotlinmultiplatformsandbox.feature.launches.data.data_source.database.ExecuteAsOneWrapper
 import ru.lyrian.kotlinmultiplatformsandbox.feature.launches.data.data_source.database.LaunchesDatabaseDataSource
 import ru.lyrian.kotlinmultiplatformsandbox.feature.launches.data.data_source.network.LaunchesNetworkDataSource
 import ru.lyrian.kotlinmultiplatformsandbox.feature.launches.data.data_source.network.api.LaunchesListApi
@@ -18,6 +19,7 @@ val launchesModule = module {
     // DatabaseDataSource
     single { AppDatabase(get()) }
     factory { get<AppDatabase>().appDatabaseQueries }
+    factoryOf(::ExecuteAsOneWrapper)
     factoryOf(::LaunchesDatabaseDataSource)
 
     // NetworkDataSource

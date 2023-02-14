@@ -2,13 +2,15 @@ package ru.lyrian.kotlinmultiplatformsandbox.feature.profile.domain
 
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
+import ru.lyrian.kotlinmultiplatformsandbox.core.domain.SharedResult
+import ru.lyrian.kotlinmultiplatformsandbox.core.domain.asSharedResult
 
 class ProfileInteractor : KoinComponent {
-    private val profileRepository by inject<ProfileRepository>()
+    private val profileRepository: ProfileRepository by inject<ProfileRepository>()
 
-    @Throws(Exception::class)
-    fun getProfile(): Profile = profileRepository.getProfile()
+    suspend fun getProfile(): SharedResult<Profile, Throwable> =
+        runCatching { profileRepository.getProfile() }.asSharedResult()
 
-    @Throws(Exception::class)
-    fun saveProfile(profile: Profile) = profileRepository.saveProfile(profile)
+    suspend fun saveProfile(profile: Profile): SharedResult<Unit, Throwable> =
+        runCatching { profileRepository.saveProfile(profile) }.asSharedResult()
 }

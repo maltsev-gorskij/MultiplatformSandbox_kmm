@@ -1,13 +1,13 @@
 package ru.lyrian.kotlinmultiplatformsandbox.core.data.pagination
 
 import dev.icerock.moko.mvvm.ResourceState
-import dev.icerock.moko.mvvm.livedata.LiveData
-import dev.icerock.moko.mvvm.livedata.MutableLiveData
 import dev.icerock.moko.mvvm.livedata.asFlow
-import dev.icerock.moko.mvvm.livedata.readOnly
 import dev.icerock.moko.paging.LambdaPagedListDataSource
 import dev.icerock.moko.paging.Pagination
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 /**
@@ -24,12 +24,13 @@ import kotlinx.coroutines.launch
  * */
 internal class PagingSource<PagingItem : Any>(
     private val firstPage: Int,
-    coroutineScope: CoroutineScope,
+    private val coroutineScope: CoroutineScope,
     onNextPageRequest: suspend (Int, List<PagingItem>?) -> List<PagingItem>,
     private val onRefreshRequest: suspend () -> Unit = { },
     comparator: Comparator<PagingItem>
-): PaginationOperator {
+) : PaginationOperator {
     private var currentPage = firstPage
+    private var shouldEmitGlobalSuccess = true
 
     private val pagination = Pagination(
         parentScope = coroutineScope,
@@ -40,101 +41,133 @@ internal class PagingSource<PagingItem : Any>(
         },
         comparator = comparator,
         nextPageListener = { result: Result<List<PagingItem>> ->
-            // Listening pagination callback for providing
-            // ResourceState.Success and ResourceState.Failed to nextPageLoadingState LiveData
             result
-                .onSuccess {
-                    mutableNextPageLoadingState.value = ResourceState.Success(it)
+                .onSuccess { pagingItems: List<PagingItem> ->
+                    this.paginationState.update {
+                        PaginationState.Success(
+                            isFirstPage = false,
+                            isRefreshed = false,
+                            data = pagingItems
+                        )
+                    }
                 }
-                .onFailure {
-                    mutableNextPageLoadingState.value = ResourceState.Failed(it)
+                .onFailure { throwable: Throwable ->
+                    this.paginationState.update {
+                        PaginationState.Failed(isFirstPage = false, exception = throwable)
+                    }
                 }
         },
         refreshListener = { result: Result<List<PagingItem>> ->
-            // Listening pagination callback for providing
-            // ResourceState.Success and ResourceState.Failed to refreshLoadingState LiveData
             result
-                .onSuccess {
-                    mutableRefreshLoadState.value = ResourceState.Success(it)
+                .onSuccess { pagingItems: List<PagingItem> ->
+                    this.paginationState.update {
+                        PaginationState.Success(
+                            isFirstPage = true,
+                            isRefreshed = true,
+                            data = pagingItems
+                        )
+                    }
                 }
-                .onFailure {
-                    mutableRefreshLoadState.value = ResourceState.Failed(it)
+                .onFailure { throwable: Throwable ->
+                    this.paginationState.update {
+                        PaginationState.Failed(isFirstPage = true, exception = throwable)
+                    }
                 }
-
         },
         initValue = emptyList()
     )
 
-
-    // Emits initial page load and errors, new page loads lists.
-    private val resourceState: LiveData<ResourceState<List<PagingItem>, Throwable>> = pagination.state
-
-    // Private mutable and immutable live data nextPageLoadingState to emit correct page load states
-    private val mutableNextPageLoadingState =
-        MutableLiveData<ResourceState<List<PagingItem>, Throwable>>(ResourceState.Empty())
-    private val nextPageLoadingState: LiveData<ResourceState<List<PagingItem>, Throwable>> =
-        mutableNextPageLoadingState.readOnly()
-
-    // Private mutable and immutable live data refreshLoadingState to emit correct refresh list states
-    private val mutableRefreshLoadState =
-        MutableLiveData<ResourceState<List<PagingItem>, Throwable>>(ResourceState.Empty())
-    private val refreshLoadingState: LiveData<ResourceState<List<PagingItem>, Throwable>> =
-        mutableRefreshLoadState.readOnly()
+    private val paginationState: MutableStateFlow<PaginationState<List<PagingItem>, Throwable>> =
+        MutableStateFlow(PaginationState.Loading(isFirstPage = shouldEmitGlobalSuccess))
 
     init {
         coroutineScope.launch {
-            // Listening internal pagination variable for providing
-            // ResourceState.Loading to nextPageLoadingState LiveData
+            launch {
+                pagination.state
+                    .asFlow()
+                    .collect { resourceState: ResourceState<List<PagingItem>, Throwable> ->
+                        when (resourceState) {
+                            is ResourceState.Success -> this@PagingSource.paginationState.update {
+                                if (shouldEmitGlobalSuccess) {
+                                    shouldEmitGlobalSuccess = false
+
+                                    PaginationState.Success(
+                                        isFirstPage = true,
+                                        isRefreshed = false,
+                                        data = resourceState.data
+                                    )
+                                } else {
+                                    it
+                                }
+                            }
+                            is ResourceState.Failed -> this@PagingSource.paginationState.update {
+                                PaginationState.Failed(
+                                    isFirstPage = true,
+                                    exception = resourceState.error
+                                )
+                            }
+                            is ResourceState.Loading -> this@PagingSource.paginationState.update {
+                                PaginationState.Loading(isFirstPage = true)
+                            }
+                            is ResourceState.Empty -> this@PagingSource.paginationState.update {
+                                PaginationState.Success(
+                                    isFirstPage = !pagination.nextPageLoading.value,
+                                    isRefreshed = pagination.refreshLoading.value,
+                                    data = emptyList()
+                                )
+                            }
+                        }
+                    }
+            }
+
             launch {
                 pagination
                     .nextPageLoading
                     .asFlow()
                     .collect {
                         if (it) {
-                            mutableNextPageLoadingState.value = ResourceState.Loading()
+                            this@PagingSource.paginationState.update {
+                                PaginationState.Loading(isFirstPage = false)
+                            }
                         }
                     }
 
             }
 
             launch {
-                // Listening internal pagination variable for providing
-                // ResourceState.Loading to refreshLoadingState LiveData
                 pagination
                     .refreshLoading
                     .asFlow()
                     .collect {
                         if (it) {
-                            mutableRefreshLoadState.value = ResourceState.Loading()
+                            this@PagingSource.paginationState.update {
+                                PaginationState.Loading(isFirstPage = true)
+                            }
                         }
                     }
             }
+
+            launch { pagination.loadFirstPageSuspend() }
         }
     }
 
     // Initialize Pagination and provide methods and states for pagination, page loading and refresh loading.
-    suspend fun providePaginationState(): PaginationState<PagingItem> {
-        loadFirstPage()
-
-        return PaginationState(
+    fun getPaginationProvider(): PaginationProvider<PagingItem> {
+        return PaginationProvider(
             paginationOperator = this,
-            resourceState = resourceState,
-            nextPageLoadingState = nextPageLoadingState,
-            refreshLoadingState = refreshLoadingState
+            paginationState = this.paginationState.asStateFlow()
         )
     }
 
-    private suspend fun loadFirstPage() {
-        pagination.loadFirstPageSuspend()
+    override fun loadNextPage() {
+        pagination.loadNextPage()
     }
 
-    override suspend fun loadNextPage() {
-        pagination.loadNextPageSuspend()
-    }
-
-    override suspend fun refreshPagination() {
-        onRefreshRequest()
-        currentPage = firstPage
-        pagination.refreshSuspend()
+    override fun refreshPagination() {
+        coroutineScope.launch {
+            onRefreshRequest()
+            currentPage = firstPage
+            pagination.refreshSuspend()
+        }
     }
 }
