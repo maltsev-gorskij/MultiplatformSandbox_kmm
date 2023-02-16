@@ -64,7 +64,7 @@ dependencies {
 }
 
 // Global project properties
-val appVersion by extra("1.2")
+val appVersion by extra("1.3")
 val compileSdk by extra(33)
 val minSdk by extra(21)
 val targetSdk by extra(33)
