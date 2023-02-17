@@ -23,12 +23,11 @@ kotlin {
                 implementation(libs.ktor.core)
                 implementation(libs.bundles.ktor)
                 implementation(libs.sqldelight.common)
-                api(libs.koin.core)
+                implementation(libs.koin.core)
                 implementation(libs.multiplatform.settings)
                 api(libs.moko.resources.common)
                 implementation(libs.napier)
-                api(libs.moko.paging)
-                api(libs.moko.state)
+                implementation(libs.moko.paging)
             }
         }
 
