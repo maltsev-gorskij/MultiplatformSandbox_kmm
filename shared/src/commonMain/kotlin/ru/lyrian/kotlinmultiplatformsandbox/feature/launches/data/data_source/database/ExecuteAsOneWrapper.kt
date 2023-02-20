@@ -1,6 +1,6 @@
 package ru.lyrian.kotlinmultiplatformsandbox.feature.launches.data.data_source.database
 
-import ru.lyrian.kotlinmultiplatformsandbox.core.exceptions.DatabaseExceptions
+import ru.lyrian.kotlinmultiplatformsandbox.core.common.exceptions.DatabaseExceptions
 
 @Suppress("TooGenericExceptionCaught")
 class ExecuteAsOneWrapper {

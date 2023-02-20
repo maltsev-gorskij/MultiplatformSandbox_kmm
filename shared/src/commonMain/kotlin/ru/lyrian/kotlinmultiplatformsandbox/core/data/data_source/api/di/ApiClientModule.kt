@@ -19,11 +19,11 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
-import ru.lyrian.kotlinmultiplatformsandbox.core.build_info.BuildInfo
-import ru.lyrian.kotlinmultiplatformsandbox.core.constants.KtorConstants
+import ru.lyrian.kotlinmultiplatformsandbox.core.common.build_info.BuildInfo
+import ru.lyrian.kotlinmultiplatformsandbox.core.common.constants.KtorConstants
+import ru.lyrian.kotlinmultiplatformsandbox.core.common.exceptions.KtorExceptions
+import ru.lyrian.kotlinmultiplatformsandbox.core.common.logger.SharedLogger
 import ru.lyrian.kotlinmultiplatformsandbox.core.data.data_source.api.ApiClientQualifiers
-import ru.lyrian.kotlinmultiplatformsandbox.core.exceptions.KtorExceptions
-import ru.lyrian.kotlinmultiplatformsandbox.core.logger.SharedLogger
 
 internal val apiClientModule = module {
     factory<HttpClient>(named(ApiClientQualifiers.COMMON_CLIENT)) {

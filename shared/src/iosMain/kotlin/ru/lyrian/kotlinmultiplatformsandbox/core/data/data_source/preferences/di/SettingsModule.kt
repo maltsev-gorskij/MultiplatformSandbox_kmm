@@ -7,7 +7,7 @@ import com.russhwolf.settings.Settings
 import org.koin.core.module.Module
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
-import ru.lyrian.kotlinmultiplatformsandbox.core.constants.SettingsConstants
+import ru.lyrian.kotlinmultiplatformsandbox.core.common.constants.SettingsConstants
 
 internal actual class SettingsModule {
     @OptIn(ExperimentalSettingsImplementation::class)

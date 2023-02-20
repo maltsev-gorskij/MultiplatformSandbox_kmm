@@ -1,4 +1,4 @@
-package ru.lyrian.kotlinmultiplatformsandbox.core.utils
+package ru.lyrian.kotlinmultiplatformsandbox.core.common.utils
 
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant

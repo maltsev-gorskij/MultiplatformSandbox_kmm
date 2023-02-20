@@ -1,4 +1,4 @@
-package ru.lyrian.kotlinmultiplatformsandbox.core.exceptions
+package ru.lyrian.kotlinmultiplatformsandbox.core.common.exceptions
 
 sealed class DatabaseExceptions(val errorMessage: String, val stackTrace: String): Exception(errorMessage) {
     class NoResult(errorMessage: String, stackTrace: String) : DatabaseExceptions(errorMessage, stackTrace)
