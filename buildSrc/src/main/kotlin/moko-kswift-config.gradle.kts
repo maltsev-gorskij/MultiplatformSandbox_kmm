@@ -13,7 +13,7 @@ kswift {
             "ClassContext/ru.lyrian.kotlinmultiplatformsandbox:shared/ru/lyrian/kotlinmultiplatformsandbox/core/domain/SharedResult",
             "ClassContext/ru.lyrian.kotlinmultiplatformsandbox:shared/ru/lyrian/kotlinmultiplatformsandbox/core/data/pagination/PaginationState",
             "ClassContext/ru.lyrian.kotlinmultiplatformsandbox:shared/ru/lyrian/kotlinmultiplatformsandbox/core/exceptions/KtorExceptions",
-            "ClassContext/ru.lyrian.kotlinmultiplatformsandbox:shared/ru/lyrian/kotlinmultiplatformsandbox/core/exceptions/DatabaseExceptions"
+            "ClassContext/ru.lyrian.kotlinmultiplatformsandbox:shared/ru/lyrian/kotlinmultiplatformsandbox/core/common/exceptions/DatabaseExceptions"
         )
     }
 }
