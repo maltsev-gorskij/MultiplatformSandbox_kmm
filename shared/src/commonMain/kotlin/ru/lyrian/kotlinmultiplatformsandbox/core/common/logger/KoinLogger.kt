@@ -1,10 +1,9 @@
-package ru.lyrian.kotlinmultiplatformsandbox.core.di
+package ru.lyrian.kotlinmultiplatformsandbox.core.common.logger
 
 import org.koin.core.logger.Level
 import org.koin.core.logger.Logger
 import org.koin.core.logger.MESSAGE
-import ru.lyrian.kotlinmultiplatformsandbox.core.constants.KoinConstants
-import ru.lyrian.kotlinmultiplatformsandbox.core.logger.SharedLogger
+import ru.lyrian.kotlinmultiplatformsandbox.core.common.constants.KoinConstants
 
 internal class KoinLogger(level: Level = Level.DEBUG) : Logger(level) {
     override fun display(level: Level, msg: MESSAGE) {

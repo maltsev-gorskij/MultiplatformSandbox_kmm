@@ -1,4 +1,4 @@
-package ru.lyrian.kotlinmultiplatformsandbox.core.build_info
+package ru.lyrian.kotlinmultiplatformsandbox.core.common.build_info
 
 import ru.lyrian.kotlinmultiplatformsandbox.BuildConfig
 

@@ -1,4 +1,4 @@
-package ru.lyrian.kotlinmultiplatformsandbox.core.constants
+package ru.lyrian.kotlinmultiplatformsandbox.core.common.constants
 
 internal object KtorConstants {
     const val LOG_TAG = "HTTP Client"

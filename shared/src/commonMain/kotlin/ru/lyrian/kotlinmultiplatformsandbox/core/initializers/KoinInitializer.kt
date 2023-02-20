@@ -1,9 +1,12 @@
-package ru.lyrian.kotlinmultiplatformsandbox.core.di
+package ru.lyrian.kotlinmultiplatformsandbox.core.initializers
 
 import org.koin.core.KoinApplication
 import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
-import ru.lyrian.kotlinmultiplatformsandbox.core.build_info.BuildInfo
+import ru.lyrian.kotlinmultiplatformsandbox.core.common.build_info.BuildInfo
+import ru.lyrian.kotlinmultiplatformsandbox.core.common.logger.KoinLogger
+import ru.lyrian.kotlinmultiplatformsandbox.core.di.commonModules
+import ru.lyrian.kotlinmultiplatformsandbox.core.di.featureModules
 
 expect class KoinInitializer {
     fun initializeKoin()

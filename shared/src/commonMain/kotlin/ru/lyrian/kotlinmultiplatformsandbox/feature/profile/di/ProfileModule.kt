@@ -20,7 +20,7 @@ internal val profileModule = module {
 
     // Repositories
     factory<ProfileRepository> {
-        ProfileRepositoryImpl(get())
+        ProfileRepositoryImpl(get(), get())
     }
 
     // Interactors

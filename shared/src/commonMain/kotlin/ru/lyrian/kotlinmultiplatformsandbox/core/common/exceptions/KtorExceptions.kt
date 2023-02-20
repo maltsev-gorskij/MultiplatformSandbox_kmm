@@ -1,4 +1,4 @@
-package ru.lyrian.kotlinmultiplatformsandbox.core.exceptions
+package ru.lyrian.kotlinmultiplatformsandbox.core.common.exceptions
 
 sealed class KtorExceptions(val errorCode: Int, val errorMessage: String): Exception(errorMessage) {
     class RedirectResponse(errorCode: Int, errorMessage: String) : KtorExceptions(errorCode, errorMessage)
