@@ -10,18 +10,9 @@ plugins {
 
 kotlin {
     android()
-
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach {
-        it.binaries.framework {
-            baseName = "shared"
-            export("dev.icerock.moko:resources:0.20.1")
-            export("dev.icerock.moko:graphics:0.9.0") // toUIColor here
-        }
-    }
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
 
     sourceSets {
         val commonMain by getting

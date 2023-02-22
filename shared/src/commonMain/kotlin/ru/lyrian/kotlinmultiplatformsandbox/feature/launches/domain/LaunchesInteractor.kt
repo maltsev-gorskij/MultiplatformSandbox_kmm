@@ -4,10 +4,10 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import ru.lyrian.kotlinmultiplatformsandbox.core.data.pagination.PaginationProvider
 import ru.lyrian.kotlinmultiplatformsandbox.core.domain.SharedResult
-import ru.lyrian.kotlinmultiplatformsandbox.core.domain.asSharedResult
+import ru.lyrian.kotlinmultiplatformsandbox.core.domain.runCatchingResult
 import ru.lyrian.kotlinmultiplatformsandbox.feature.launches.data.repository.LaunchesRepository
 
-class LaunchesInteractor: KoinComponent {
+class LaunchesInteractor : KoinComponent {
     private val launchesRepository: LaunchesRepository by inject()
 
     /**
@@ -18,5 +18,5 @@ class LaunchesInteractor: KoinComponent {
 
     // Launches Details screen fetching cached launch data
     suspend fun getLaunchById(launchId: String): SharedResult<RocketLaunch, Throwable> =
-        runCatching { launchesRepository.getLaunchById(launchId) }.asSharedResult()
+        runCatchingResult { launchesRepository.getLaunchById(launchId) }
 }

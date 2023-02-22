@@ -19,4 +19,6 @@ dependencies {
     implementation(libs.gradleplugins.detekt)
     implementation(libs.gradleplugins.mokoresources)
     implementation(libs.gradleplugins.kswift)
+    implementation(libs.gradleplugins.nativecoroutines)
+    implementation(libs.gradleplugins.crashkios)
 }

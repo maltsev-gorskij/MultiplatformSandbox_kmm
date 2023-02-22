@@ -5,8 +5,10 @@ import org.koin.core.component.inject
 
 class AppInitializer: KoinComponent {
     private val loggerInitializer: LoggerInitializer by inject()
+    private val firebaseInitializer: FirebaseInitializer by inject()
 
     fun init() {
         loggerInitializer.init()
+        firebaseInitializer.init()
     }
 }

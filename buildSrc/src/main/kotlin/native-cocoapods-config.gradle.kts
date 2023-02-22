@@ -14,11 +14,11 @@ kotlin {
         summary = "Some description for a Kotlin/Native module"
         homepage = "https://github.com/maltsev-gorskij/MultiplatformSandbox_kmm"
         name = "shared"
+        ios.deploymentTarget = "13.0"
 
         framework {
             baseName = "shared"
             isStatic = false
-
             export("dev.icerock.moko:resources:0.20.1")
         }
 
