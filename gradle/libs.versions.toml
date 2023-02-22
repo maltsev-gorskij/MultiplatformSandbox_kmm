@@ -17,6 +17,7 @@ moko_paging = "0.7.2"
 moko_kswift = "0.6.1"
 nativecoroutines = "0.13.3"
 crashkios = "0.8.1"
+gitlive = "1.6.2"
 
 [libraries]
 gradleplugins-android = { module = "com.android.tools.build:gradle", version.ref = "android_plugin" }
@@ -62,6 +63,8 @@ detekt-cli = { module = "io.gitlab.arturbosch.detekt:detekt-cli", version.ref = 
 napier = { module = "io.github.aakira:napier", version.ref = "napier" }
 
 crashkios = { module = "co.touchlab.crashkios:crashlytics", version.ref = "crashkios" }
+
+gitlive-firestore = { module = "dev.gitlive:firebase-firestore", version.ref = "gitlive" }
 
 [bundles]
 ktor = [

@@ -1,5 +1,3 @@
-import gradle.kotlin.dsl.accessors._b7dceff322b6b2884f430c7bbb2ba83b.cocoapods
-import gradle.kotlin.dsl.accessors._b7dceff322b6b2884f430c7bbb2ba83b.kotlin
 import org.gradle.kotlin.dsl.kotlin
 import org.jetbrains.kotlin.gradle.plugin.mpp.NativeBuildType
 
