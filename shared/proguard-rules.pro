@@ -25,7 +25,6 @@
 # Keep all Enum classes
 -keep enum *
 
-
 ### Kotlinx Serialization ###
 
 # Keep `Companion` object fields of serializable classes.

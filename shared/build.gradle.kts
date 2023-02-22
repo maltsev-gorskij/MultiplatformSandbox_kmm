@@ -12,7 +12,8 @@ plugins {
     id("moko-kswift-config")
 
     // Dependencies pluging
-    id("com.rickclephas.kmp.nativecoroutines") version "0.13.3"
+    id("com.rickclephas.kmp.nativecoroutines")
+    id("co.touchlab.crashkios.crashlyticslink")
 }
 
 kotlin {
@@ -28,6 +29,7 @@ kotlin {
                 api(libs.moko.resources.common)
                 implementation(libs.napier)
                 implementation(libs.moko.paging)
+                implementation(libs.crashkios)
             }
         }
 

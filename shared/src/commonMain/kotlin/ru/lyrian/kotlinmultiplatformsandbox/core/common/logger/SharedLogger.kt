@@ -2,7 +2,6 @@ package ru.lyrian.kotlinmultiplatformsandbox.core.common.logger
 
 import io.github.aakira.napier.LogLevel
 import io.github.aakira.napier.Napier
-import ru.lyrian.kotlinmultiplatformsandbox.core.common.build_info.BuildInfo
 import ru.lyrian.kotlinmultiplatformsandbox.core.common.constants.NapierConstants
 
 object SharedLogger {
@@ -42,15 +41,11 @@ object SharedLogger {
         throwable: Throwable? = null,
         tag: String? = null
     ) {
-        if(BuildInfo.isDebug) {
-            Napier.log(
-                priority = priority,
-                tag = NapierConstants.NAPIER_LOG_PREFIX + tag,
-                throwable = throwable,
-                message = message
-            )
-        } else {
-            // TODO -- do some firebase logging here for release build variant
-        }
+        Napier.log(
+            priority = priority,
+            tag = NapierConstants.NAPIER_LOG_PREFIX + tag,
+            throwable = throwable,
+            message = message
+        )
     }
 }

@@ -15,6 +15,8 @@ napier = "2.6.1"
 moko_resources = "0.20.1" # if version changes, update version in native-cocoapods-config.kts
 moko_paging = "0.7.2"
 moko_kswift = "0.6.1"
+nativecoroutines = "0.13.3"
+crashkios = "0.8.1"
 
 [libraries]
 gradleplugins-android = { module = "com.android.tools.build:gradle", version.ref = "android_plugin" }
@@ -26,6 +28,8 @@ gradleplugins-cocoapods = { module = "org.jetbrains.kotlin.native.cocoapods:org.
 gradleplugins-detekt = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
 gradleplugins-mokoresources = { module = "dev.icerock.moko:resources-generator", version.ref = "moko_resources" }
 gradleplugins-kswift = { module = "dev.icerock.moko:kswift-gradle-plugin", version.ref = "moko_kswift" }
+gradleplugins-nativecoroutines = { module = "com.rickclephas.kmp:kmp-nativecoroutines-gradle-plugin", version.ref = "nativecoroutines" }
+gradleplugins-crashkios = { module = "co.touchlab.crashkios.crashlyticslink:co.touchlab.crashkios.crashlyticslink.gradle.plugin", version.ref = "crashkios" }
 
 sqldelight-common = { module = "com.squareup.sqldelight:runtime", version.ref = "sqldelight" }
 sqldelight-android = { module = "com.squareup.sqldelight:android-driver", version.ref = "sqldelight" }
@@ -56,6 +60,8 @@ multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", vers
 detekt-cli = { module = "io.gitlab.arturbosch.detekt:detekt-cli", version.ref = "detekt" }
 
 napier = { module = "io.github.aakira:napier", version.ref = "napier" }
+
+crashkios = { module = "co.touchlab.crashkios:crashlytics", version.ref = "crashkios" }
 
 [bundles]
 ktor = [
