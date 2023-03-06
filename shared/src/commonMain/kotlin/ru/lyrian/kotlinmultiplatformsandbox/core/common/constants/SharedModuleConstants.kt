@@ -24,3 +24,7 @@ internal object PaginationConstants {
     const val INITIAL_PAGE = 1
     const val PAGE_SIZE = 20
 }
+
+internal object FirebaseConstants {
+    const val REALTIME_DATABASE_URL = "https://kmm-firebase-test-73c14-default-rtdb.europe-west1.firebasedatabase.app/"
+}

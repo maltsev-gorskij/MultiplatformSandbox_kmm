@@ -46,7 +46,8 @@ internal class LaunchesDatabaseDataSource constructor(
                     launchDateUTC = launch.launchDateUTC,
                     articleUrl = launch.articleUrl,
                     id = launch.id,
-                    patchImageUrl = launch.patchImageUrl
+                    patchImageUrl = launch.patchImageUrl,
+                    youtubeId = launch.youtubeId
                 )
             }
         }

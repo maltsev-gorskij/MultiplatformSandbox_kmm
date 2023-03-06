@@ -1,4 +1,4 @@
-package ru.lyrian.kotlinmultiplatformsandbox_firebase
+package ru.lyrian.kotlinmultiplatformsandbox.feature.firebase_crashlytics_example.domain
 
 import dev.gitlive.firebase.Firebase
 import dev.gitlive.firebase.firestore.FirebaseFirestore

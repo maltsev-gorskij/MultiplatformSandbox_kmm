@@ -11,5 +11,6 @@ data class RocketLaunch(
     val id: String,
     val patchImageUrl: String?,
     val flickrImagesUrls: List<String>,
+    val youtubeId: String?,
     val failureReasons: List<String>
 )

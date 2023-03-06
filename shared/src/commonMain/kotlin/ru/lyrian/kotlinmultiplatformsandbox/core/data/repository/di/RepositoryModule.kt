@@ -4,6 +4,6 @@ import org.koin.core.module.dsl.factoryOf
 import org.koin.dsl.module
 import ru.lyrian.kotlinmultiplatformsandbox.core.data.repository.KmmDispatchers
 
-val repositoryModule = module {
+internal val repositoryModule = module {
     factoryOf(::KmmDispatchers)
 }

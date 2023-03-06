@@ -1,6 +1,3 @@
-import gradle.kotlin.dsl.accessors._658844fd496f8a227ec3e304207fa318.android
-import gradle.kotlin.dsl.accessors._658844fd496f8a227ec3e304207fa318.java
-
 plugins {
     id("com.android.library")
 }

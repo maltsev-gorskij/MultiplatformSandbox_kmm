@@ -1,5 +1,5 @@
 package ru.lyrian.kotlinmultiplatformsandbox.core.initializers
 
-internal expect class FirebaseInitializer {
+internal expect class CrashlyticsInitializer {
     fun init()
 }

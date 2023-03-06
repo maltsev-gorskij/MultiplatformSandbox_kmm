@@ -30,6 +30,8 @@ kotlin {
                 implementation(libs.napier)
                 implementation(libs.moko.paging)
                 implementation(libs.crashkios)
+                implementation(libs.gitlive.firestore)
+                implementation(libs.gitlive.realtimedatabase)
             }
         }
 
