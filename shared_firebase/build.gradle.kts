@@ -65,6 +65,7 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(libs.gitlive.firestore)
+                implementation(libs.gitlive.realtimedatabase)
             }
         }
     }
