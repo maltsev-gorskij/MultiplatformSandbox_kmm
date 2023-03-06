@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
     spec.module_name              = "sharedSwift"
     
     
-    spec.static_framework         = false
+    spec.static_framework         = true
     spec.dependency 'shared'
     spec.source_files = "build/cocoapods/framework/sharedSwift/**/*.{h,m,swift}"
 end

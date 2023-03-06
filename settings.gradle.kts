@@ -17,6 +17,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "KMMSandbox_kmm"
 include(
-    ":shared",
-    ":shared_firebase"
+    ":shared"
 )

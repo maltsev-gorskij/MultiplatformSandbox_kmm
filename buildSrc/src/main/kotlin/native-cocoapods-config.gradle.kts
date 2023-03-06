@@ -16,7 +16,7 @@ kotlin {
 
         framework {
             baseName = "shared"
-            isStatic = false
+            isStatic = true
             export("dev.icerock.moko:resources:0.20.1")
         }
 
