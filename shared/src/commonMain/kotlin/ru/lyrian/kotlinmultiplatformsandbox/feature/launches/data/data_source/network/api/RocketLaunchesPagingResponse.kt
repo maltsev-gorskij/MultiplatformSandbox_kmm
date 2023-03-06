@@ -38,6 +38,8 @@ internal data class RocketLaunchResponse(
         val article: String?,
         val patch: RocketLaunchResponsePatch,
         val flickr: RocketLaunchResponseFlickr,
+        @SerialName("youtube_id")
+        val youtubeId: String?
     ) {
         @Serializable
         internal data class RocketLaunchResponsePatch(

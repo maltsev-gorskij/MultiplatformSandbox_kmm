@@ -1,5 +1,6 @@
 package ru.lyrian.kotlinmultiplatformsandbox.feature.launches.data.repository
 
+import dev.gitlive.firebase.database.FirebaseDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -15,7 +16,8 @@ import ru.lyrian.kotlinmultiplatformsandbox.feature.launches.domain.RocketLaunch
 internal class LaunchesRepository(
     private val launchesNetworkDataSource: LaunchesNetworkDataSource,
     private val launchesDatabaseDataSource: LaunchesDatabaseDataSource,
-    private val kmmDispatchers: KmmDispatchers
+    private val kmmDispatchers: KmmDispatchers,
+    private val firebaseDatabase: FirebaseDatabase
 ) {
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
     private val pagingSource = PagingSource<RocketLaunch>(
@@ -56,5 +58,10 @@ internal class LaunchesRepository(
     suspend fun getLaunchById(launchId: String): RocketLaunch =
         withContext(kmmDispatchers.io()) {
             launchesDatabaseDataSource.getLaunchById(launchId)
+        }
+
+    suspend fun addVideoLink() =
+        withContext(kmmDispatchers.io()) {
+            firebaseDatabase.reference("links").setValue("test")
         }
 }

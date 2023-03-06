@@ -6,6 +6,7 @@
     <!--    Bottom Navigation-->
     <string name="bottom_nav_launches">Запуски</string>
     <string name="bottom_nav_favourites">Избранное</string>
+    <string name="bottom_nav_videos">Видео</string>
     <string name="bottom_nav_profile">Профиль</string>
 
     <!--    Launches-->

@@ -6,6 +6,7 @@
     <!--    Bottom Navigation-->
     <string name="bottom_nav_launches">Launches</string>
     <string name="bottom_nav_favourites">Favourites</string>
+    <string name="bottom_nav_videos">Videos</string>
     <string name="bottom_nav_profile">Profile</string>
 
     <!--    Launches-->

@@ -19,4 +19,7 @@ class LaunchesInteractor : KoinComponent {
     // Launches Details screen fetching cached launch data
     suspend fun getLaunchById(launchId: String): SharedResult<RocketLaunch, Throwable> =
         runCatchingResult { launchesRepository.getLaunchById(launchId) }
+
+    // TODO -- Example method of Firebase usage. Proof of concept that Firebase is working in KMM
+    suspend fun addVideoLink() = launchesRepository.addVideoLink()
 }

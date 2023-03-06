@@ -8,5 +8,5 @@ import ru.lyrian.kotlinmultiplatformsandbox.core.initializers.LoggerInitializer
 internal val initializersModule = module {
     factoryOf(::LoggerInitializer)
     factoryOf(::AppInitializer)
-    includes(firebaseModule)
+    includes(crashlyticsModule)
 }

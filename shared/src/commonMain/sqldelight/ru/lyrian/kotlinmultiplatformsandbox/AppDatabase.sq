@@ -7,7 +7,8 @@ CREATE TABLE IF NOT EXISTS LaunchEntity (
     details         TEXT,
     launchSuccess   INTEGER AS Boolean DEFAULT NULL,
     articleUrl      TEXT,
-    patchImageUrl   TEXT
+    patchImageUrl   TEXT,
+    youtubeId       TEXT
 );
 
 insertLaunch:
@@ -20,9 +21,10 @@ INSERT INTO LaunchEntity(
     launchDateUTC,
     articleUrl,
     id,
-    patchImageUrl
+    patchImageUrl,
+    youtubeId
 )
-VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);
+VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
 
 getLaunchById:
 SELECT *

@@ -18,6 +18,7 @@ internal class RocketLaunchMapper {
             id = rocketLaunchResponse.id,
             patchImageUrl = rocketLaunchResponse.links.patch.large,
             flickrImagesUrls = rocketLaunchResponse.links.flickr.original,
+            youtubeId = rocketLaunchResponse.links.youtubeId,
             failureReasons = rocketLaunchResponse.failures.map { it.reason }
         )
 
@@ -37,6 +38,7 @@ internal class RocketLaunchMapper {
             id = launchEntity.id,
             patchImageUrl = launchEntity.patchImageUrl,
             flickrImagesUrls = flickrImagesUrls,
-            failureReasons = failureReasons
+            youtubeId = launchEntity.youtubeId,
+            failureReasons = failureReasons,
         )
 }
