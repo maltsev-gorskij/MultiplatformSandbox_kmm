@@ -65,6 +65,7 @@ napier = { module = "io.github.aakira:napier", version.ref = "napier" }
 crashkios = { module = "co.touchlab.crashkios:crashlytics", version.ref = "crashkios" }
 
 gitlive-firestore = { module = "dev.gitlive:firebase-firestore", version.ref = "gitlive" }
+gitlive-realtimedatabase = { module = "dev.gitlive:firebase-database", version.ref = "gitlive" }
 
 [bundles]
 ktor = [
