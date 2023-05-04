@@ -5,7 +5,7 @@ import kotlinx.coroutines.Dispatchers
 
 internal actual class KmmDispatchers {
     @Suppress("FunctionMinLength")
-    actual fun io(): CoroutineDispatcher = Dispatchers.Main
+    actual fun io(): CoroutineDispatcher = Dispatchers.Default
 
     actual fun default(): CoroutineDispatcher = Dispatchers.Default
 
